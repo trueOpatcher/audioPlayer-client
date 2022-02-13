@@ -1,0 +1,22 @@
+<div class="container">
+    <div>
+        <mat-icon class="matAdd" (click)="onClickAdd()">{{ showPlaylist ? 'playlist_add_check' : 'playlist_add'}}</mat-icon>
+        <form [formGroup] = "uploadForm" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+            <label for="file">Select File</label>
+            <input
+            formControlName="file"
+            class="form-control"
+             type="file"
+             id="file"
+             accept=".mp3"
+            (change)="onSelectFile($event)"
+            >
+        </div>
+        <div>
+            <button type="submit">Upload file</button>
+        </div>
+      </form>
+        
+    </div>
+</div>

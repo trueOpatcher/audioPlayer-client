@@ -1,1 +1,39 @@
 /* You can add global styles to this file, and also import other style files */
+html {
+  background-color: rgb(10, 10, 10); 
+  /* height: 100%; */
+}
+
+/* body {
+  height: 100%;
+} */
+
+.font {
+  font-family: pacifico, sans-serif;
+  text-shadow: 0 0 5px  #e60073;
+}
+
+.mat-accent .mat-slider-thumb {
+  background-color: blue;
+}
+
+.mat-accent .mat-slider-track-fill {
+  background-color: rgb(14, 14, 116);
+}
+
+
+.neonText {
+  /* text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #e60073, 0 0 20px #e60073, 0 0 25px #e60073, 0 0 30px #e60073, 0 0 35px #e60073;  */
+  text-shadow: 0 0 5px #fff, 0 0 10px #e60073, 0 0 15px #e60073, 0 0 20px #e60073, 0 0 25px #e60073, 0 0 30px #e60073; 
+
+  /* font-family: Robert Leuschke; */
+  font-family: Pacifico, sans-serif;
+  /* font-family: Jazz LET, fantasy; */
+  color: white;
+}
+.pacificoFont {
+  font-family: Pacifico, sans-serif;
+}
+
+  
+

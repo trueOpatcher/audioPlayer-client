@@ -1,0 +1,17 @@
+.matAdd {
+  height: 35px !important;
+  width: 35px !important;
+  font-size: 35px !important;
+  cursor: pointer;
+  color: white;
+}
+
+.row {
+  display: flex;
+}
+.container {
+  display: inline-block;
+}
+
+
+

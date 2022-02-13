@@ -1,0 +1,35 @@
+<div class="container">
+
+
+    <div class="content" style="width: 100%;">
+        <!-- <div>
+                <mat-toolbar class="main-toolbar">
+                    <span>Playing now</span>
+                </mat-toolbar> -->
+        <!-- <mat-list>
+                    <mat-list-item>
+                        <h4 mat-line *ngIf="currentFile.file">{{ currentFile.file.name }}</h4>
+                        <h5 mat-line *ngIf="currentFile.file">{{ currentFile.file.artist }}</h5>
+                    </mat-list-item>
+                </mat-list> -->
+        <!-- </div> -->
+
+
+
+        <mat-list>
+            <div class="flex-grow-3">
+                <mat-list-item class="box focus" *ngFor="let file of files; let i = index" (click)="openFile(file, i)">
+                    <mat-icon mat-list-icon>music_note</mat-icon>
+
+                    <h4 mat-line>{{ file.name }}</h4>
+                    <h5 mat-line>by {{ file.artist }}</h5>
+                    <!-- <mat-icon *ngIf="currentFile.index === i && !state?.error">volume_up</mat-icon> -->
+                    <!-- <h6 *ngIf="currentFile.index === i && state?.error">ERROR</h6> -->
+                    <mat-divider></mat-divider>
+                </mat-list-item>
+            </div>
+        </mat-list>
+    </div>
+
+
+</div>

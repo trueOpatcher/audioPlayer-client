@@ -1,0 +1,52 @@
+.row {
+    justify-content: space-around;
+}
+
+input {
+    margin-bottom: 2.5vh;
+    margin-top: 0.5vh;
+}
+
+.container {
+    margin-top: 5rem;
+}
+
+a {
+    cursor: pointer;
+    color: white;
+}
+
+.centerPosition {
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+}
+
+.bottomContent {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.font {
+    font-family: pacifico, sans-serif;
+    text-shadow: 0 0 5px #e60073;
+}
+
+button {
+    padding: 0;
+    cursor: pointer;
+    font-size: 1.2rem;
+    font-weight: 400;
+    line-height: 1.5;
+    border: 0;
+    background-color: rgb(10, 10, 10);
+    color: white;
+}
+
+button:hover {
+    text-shadow: 0 0 5px #e60073, 0 0 10px #e60073, 0 0 15px #e60073;
+}

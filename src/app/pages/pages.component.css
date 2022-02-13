@@ -1,0 +1,10 @@
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.row {
+    display: flex;
+    min-width: 800px;
+}
+.container {
+    min-width: 1200px;
+    position: relative;
+}

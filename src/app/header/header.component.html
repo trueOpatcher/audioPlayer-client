@@ -1,0 +1,52 @@
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+
+
+
+        <div class="navbar-header">
+            <span class="neonText">
+                <span class="darkNeon">I</span>
+                <span class="thirdFlasher">t</span>
+                <span class="darkNeon">'s </span>
+                <span class="firstFlasher">W</span>
+                <span class="darkNeon">orkin</span>
+                <span class="secondFlasher">g</span>
+            </span>
+        </div>
+        <ul class="nav navbar-nav">
+            <li routerLinkActive="active" *ngIf="userAuthenticated"><a>Home</a></li>
+            <li routerLinkActive="active" *ngIf="userAuthenticated"><a routerLink="/pages">Player</a></li>
+            <li routerLinkActive="active" *ngIf="userAuthenticated">
+                <a 
+                (click)="onDisplayPlaylist()"
+                >Playlist</a></li>
+            <!-- <li routerLinkActive="active" *ngIf="!userAuthenticated"><a routerLink="/auth">Authentication</a></li> -->
+        </ul>
+
+
+        <div style="margin-left: auto;"></div>
+        <div class="font">
+
+           <a *ngIf="!userAuthenticated" [ngClass]="{'active': signMode === false}" class="signModeButton" (click)="onChangeMode()">Login</a> 
+           <a *ngIf="!userAuthenticated" [ngClass]="{'active': signMode === true}" class="signModeButton" (click)="onChangeMode()">SignUp</a>
+            
+        </div>
+        <input type="search" placeholder="Search" aria-label="Search" *ngIf="userAuthenticated">
+        <div>
+            <ul style="margin-left: 1vw;">
+                <li><a *ngIf="userAuthenticated" (click)="onLogout()" class="pacificoFont">Logout</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="container">
+        <div class="backlight"></div>
+        <div class="opacitySquare">
+        </div>
+    </div>
+   
+        
+            
+        
+    
+
+</nav>

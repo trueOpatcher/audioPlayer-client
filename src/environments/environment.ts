@@ -3,8 +3,22 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  firebaseConfig: {
+    apiKey: "AIzaSyCWDHM4nHlW3kdTjIrxLSsrMrcZ1a3P26o",
+    authDomain: "music-player-e28d7.firebaseapp.com",
+    databaseURL: "https://music-player-e28d7-default-rtdb.firebaseio.com",
+    projectId: "music-player-e28d7",
+    storageBucket: "music-player-e28d7.appspot.com",
+    messagingSenderId: "97070427688",
+    appId: "1:97070427688:web:a7ec249c6526843a874f1d",
+    measurementId: "G-MM9R4SGMTK"
+  },
+
+  serverUrl: 'http://localhost:3000'
 };
+
+
 
 /*
  * For easier debugging in development mode, you can import the following file

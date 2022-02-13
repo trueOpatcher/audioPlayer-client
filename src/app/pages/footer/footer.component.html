@@ -1,0 +1,30 @@
+<div class="media-footer">
+    <div>
+        <mat-toolbar>
+            <div>
+                {{ state?.readableCurrentTime }}
+                <mat-slider class="time-slider" min="0" [max]="state?.duration" step="1" [value]="state?.currentTime" (input)="onSliderChangeEnd($event)" [disabled]="state?.error"></mat-slider>
+
+                {{ state?.readableDuration }}
+            </div>
+            <div class="media-action-bar">
+                <button [disabled]="isFirstPlaying()" (click)="previous()">
+
+                    <mat-icon class="btn sideArrows">skip_previous</mat-icon>
+                </button>
+                <button (click)="play()" [disabled]="state?.error" *ngIf="!state?.playing">
+
+                    <mat-icon class="btn play">play_arrow</mat-icon>
+                </button>
+                <button (click)="pause()" *ngIf="state?.playing">
+
+                    <mat-icon class="btn play">pause</mat-icon>
+                </button>
+                <button [disabled]="isLastPlaying()" (click)="next()">
+
+                    <mat-icon class="btn sideArrows">skip_next</mat-icon>
+                </button>
+            </div>
+        </mat-toolbar>
+    </div>
+</div>
