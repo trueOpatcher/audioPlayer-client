@@ -5,7 +5,7 @@ import * as moment from 'moment';
 import { StreamState } from '../interfaces/stream-state';
 
 import { environment } from "src/environments/environment";
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { File } from '../shared/file.model';
 
 
@@ -19,7 +19,6 @@ export class AudioService {
 
   files = new BehaviorSubject<File[]>([]);
   currentFile = new BehaviorSubject<any>({});
-
   private stop$ = new Subject();
   private audioObj = new Audio();
 
@@ -43,38 +42,12 @@ export class AudioService {
   };
 
 
-  fetchPlaylist() {
-
-    return this.http.get<any[]>(this.SERVER_URL + '/playlist', { withCredentials: true })
-    .pipe(map(files => {
-
-      let playlistData: File[] = [];
-
-      files.forEach(file => {
-
-        playlistData.push(
-          {
-            // url: this.SERVER_URL + '/upload/mp3' + file.trackName,
-            url: 'https://cdn.pixabay.com/download/audio/2021/12/17/audio_93d90514a5.mp3?filename=this-minimal-technology-12327.mp3',
-            name: file.trackName,
-            artist: ''
-          });
-
-      });
-      
-       this.files.next(playlistData);
-       return playlistData;
-    }));
-    
-  }
-
   private streamObservable(url: any) {
     return new Observable(observer => {
       // Play audio
       this.audioObj.src = url;
       this.audioObj.load();
       this.audioObj.play();
-  
       const handler = (event: Event) => {
         this.updateStateEvents(event);
         observer.next(event);
@@ -172,4 +145,8 @@ export class AudioService {
   getState(): Observable<StreamState> {
     return this.stateChange.asObservable();
   }
+
+
+  
+  
 }

@@ -6,7 +6,8 @@
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "test": "ng test",
+    "heroku-postbuild": "ng build --prod"
   },
   "private": true,
   "dependencies": {
@@ -25,6 +26,7 @@
     "jquery": "^3.6.0",
     "moment": "^2.29.1",
     "mongodb": "^4.3.1",
+    "music-metadata": "^7.12.2",
     "realm-web": "^1.5.1",
     "rxjs": "~7.4.0",
     "tslib": "^2.3.0",

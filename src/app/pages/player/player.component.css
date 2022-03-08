@@ -1,87 +1,176 @@
-.container .main-toolbar .toolbar-btn {
-    font-size: 16px;
-    cursor: pointer;
-}
-
-.logo-div {
-    display: flex;
-}
 
 .container {
-    max-width: none;
-    padding: 20px 0 20px 0;
-    display: inline-block;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
 }
 
-.logo {
-    margin: 2.5rem;
-    margin-left: 5px;
-    margin-top: 1vh;
-    margin-bottom: 3vh;
-    /* font-size: 24px; */
-    /* color: #3f51b5; */
+.content {
+  position: relative;
+  white-space: nowrap;
+  display: flex;
+  flex-direction: column;
+  height: 70vh;
+  width: 100%;
+  overflow-x: hidden;
+
 }
 
-.logo .mat-icon {
-    height: 50px !important;
-    width: 50px !important;
-    font-size: 50px !important;
+.moreBtn {
+    float: left;
 }
 
+.menuItemStyle {
+    height: 20px;
+    line-height: 20px;
+  }
 
-/* .mat-divider {
-      box-shadow: -1px 0 1px white, -2px 0 3px #e60073;
-    } */
+.image {
+ display: flex;
+ flex-direction: row;
+ justify-content: center;
+  
+}
+
+.description {
+  padding: 2vh 1vw 1vh 1vw;
+
+  overflow: hidden;
+  box-sizing: border-box;
+
+  display: flex;
+  flex-grow: 1;
+  position: relative;
+  flex-direction: column;
+
+  color: white;
+  bottom: 0;
+  left: 0;
+}
+
+h3 {
+    font-size: inherit;
+
+}
 
 h4 {
-    text-shadow: 0 0 6px #e60073;
-    /* color: #e60073; */
-    color: white;
-    overflow: visible;
+    font-size: inherit;
 }
 
-h5 {
-    /* text-shadow: 0 0 6px #e60073; */
+h6 {
+    position: absolute;
+    bottom: 0;
+    right: 0;
     color: rgb(59, 57, 57);
+    font-size: 15px;
+    margin-bottom: 4vh;
 }
 
-.mat-list-base {
-    padding-top: 0;
-}
 
-.mat-list .mat-list-item {
-    cursor: pointer;
-    font-family: Epidemic, sans-serif;
-    background-color: rgb(10, 10, 10);
-}
+    .media-footer {
+        justify-content: space-between;
+      transform: translateX(0);
+      padding: 3px;
+      position: fixed;
+      bottom: 0;
+      right: 0;
+      width: 50%;
+      height: 14vh;
+      display: flex;
+      flex-direction: column;
+      white-space: nowrap;
+      overflow: hidden;
+  }
 
-.mat-list {
-    overflow-y: scroll;
-    height: 300px;
-    box-sizing: border-box;
-}
+  
+ 
+  
+  .play {
+      color: white;
+      height: 30px;
+      width: 30px;
+      font-size: 30px;
+      box-sizing: content-box;
+  }
+  
+  .play:hover {
+      text-shadow: 0 0 5px #e60073, 0 0 10px #e60073, 0 0 15px #e60073;
+  }
+  
+  .sideArrows {
+      box-sizing: content-box;
+      color: white;
+      height: 30px !important;
+      width: 30px !important;
+      font-size: 30px !important;
+  }
+  
+  .sideArrows:hover {
+      text-shadow: 0 0 5px #e60073, 0 0 10px #e60073, 0 0 15px #e60073;
+  }
+  
+  .border {
+    margin: 0 3vw;
+  }
 
-.mat-list .mat-icon {
-    color: white;
-    text-shadow: 0 0 6px #e60073, 0 0 12px #e60073;
-}
+  .media-footer .time-slider {
+      
+      left: 0;
+      margin-left: 20px;
+      margin-right: 20px;
+  }
+  
+  .media-wrapper {
+      margin: 0 3vw;
+  }
 
- ::-webkit-scrollbar {
-    width: 10px;
-}
+  .controlPanelWrapper {
+    text-align: center;
+      display: inline-block;
+      
+      width: 100%;
+      justify-content: center;
+  }
+  
+  .mat-toolbar-row {
+      border: 1px;
+  }
+  
 
- ::-webkit-scrollbar-track {
-    background-color: rgb(10, 10, 10);
-}
+  
+  .mat-toolbar {
+      
+      background-color: rgb(10, 10, 10);
+      color: white;
+  }
 
- ::-webkit-scrollbar-thumb {
-    background-color: rgb(59, 57, 57);
-}
+  .mat-image {
+      height: 250px;
+      width: 250px;
+      font-size: 250px;
+  }
+  
+  
 
-.mat-list .mat-list-item:hover {
-    background-color: black;
-}
+  .iconButton:disabled {
+    color: rgb(59, 57, 57);
 
-.mat-divider {
-    border-bottom: 1px solid rgb(59, 57, 57);
-}
+    text-shadow: none;
+    cursor: none;
+    pointer-events: none;
+  }
+  
+  .slider {
+    color: rgb(59, 57, 57);
+      text-align: center;
+      position: relative;
+      justify-content: center;
+  }
+
+  
+
+  .mat-slider {
+
+    width: 50% !important;
+      height: 3vh;
+  }

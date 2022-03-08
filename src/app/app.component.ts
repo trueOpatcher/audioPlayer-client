@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { Event, NavigationCancel, NavigationEnd, NavigationError, NavigationStart, Router } from '@angular/router';
-import { BehaviorSubject, Subject } from 'rxjs';
-import { AuthService } from './auth/auth.service';
 import { RealmAuthService } from './auth/realmAuth.service';
 
 @Component({

@@ -3,6 +3,8 @@ import { ActivatedRoute, Router } from "@angular/router";
 import { Subscription } from "rxjs";
 import { AuthService } from "../auth/auth.service";
 import { RealmAuthService } from '../auth/realmAuth.service';
+import { AudioService } from "../pages/audio.service";
+
 
 @Component({
     selector: 'app-header',
@@ -18,14 +20,17 @@ export class HeaderComponent implements OnInit, OnDestroy {
         private authService: AuthService,
         private realmAuthService: RealmAuthService,
         private router: Router,
-        private route: ActivatedRoute) {
+        private route: ActivatedRoute,
+        private audioService: AudioService) {
 
     }
 
-    onChangeMode() {
-        this.realmAuthService.changeSignMode();
-        this.signMode = this.realmAuthService.signMode;
+    onChangeMode(signMode: boolean) {
+        this.signMode = signMode;
+        this.realmAuthService.signMode.next(signMode);
     }
+
+    
     ngOnInit() {
 
         this.userSub = this.realmAuthService.authStatus.subscribe(user => {
@@ -35,6 +40,8 @@ export class HeaderComponent implements OnInit, OnDestroy {
     }
     onLogout() {
         this.realmAuthService.logout();
+
+        this.audioService.stop();
     }
 
     ngOnDestroy() {

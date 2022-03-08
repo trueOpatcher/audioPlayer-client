@@ -1,22 +1,173 @@
 <div class="container">
-    <div>
-        <mat-icon class="matAdd" (click)="onClickAdd()">{{ showPlaylist ? 'playlist_add_check' : 'playlist_add'}}</mat-icon>
-        <form [formGroup] = "uploadForm" (ngSubmit)="onSubmit()">
-        <div class="form-group">
-            <label for="file">Select File</label>
-            <input
-            formControlName="file"
-            class="form-control"
-             type="file"
-             id="file"
-             accept=".mp3"
-            (change)="onSelectFile($event)"
-            >
-        </div>
-        <div>
-            <button type="submit">Upload file</button>
-        </div>
-      </form>
+    
+
+
         
-    </div>
+        
+            <div class="head pacificoFont">
+
+                <div class="title" [ngClass]="{'neonText': showStorage === false}">
+                    <a (click)="options(false)">My playlist</a>
+                </div>
+
+                <div class="title" [ngClass]="{'neonText': showStorage === true}">
+                    <a (click)="options(true)">Shared Storage</a>
+                </div>
+
+                
+
+            </div>
+
+
+
+            <div *ngIf="showStorage" class="content">
+                <mat-list>
+                    <div class="flex-grow-3">
+                        <mat-list-item *ngFor="let sharedFile of sharedFiles; let i = index">
+                            <div class="itemWrapper" (click)="openFile(sharedFile, i)">
+                                <mat-list-item>
+                                    <mat-icon class="lightGlow" mat-list-icon>music_note</mat-icon>
+                                    <h4 
+                                *ngIf="sharedFile.title"
+                                 mat-line
+                                 >{{ sharedFile.title }}</h4>
+
+                                <h5 
+                                *ngIf="sharedFile.artist"
+                                 mat-line
+                                 >{{ sharedFile.artist }}</h5>
+
+                                <h4
+                                 *ngIf="!sharedFile.title && !sharedFile.artist"
+                                 mat-line
+                                 >{{ sharedFile.name }}</h4>
+                                    <!-- <mat-icon *ngIf="currentFile.index === i && !state?.error">volume_up</mat-icon> -->
+                                    <!-- <h6 *ngIf="currentFile.index === i && state?.error">ERROR</h6> -->
+                                </mat-list-item>
+                            </div>
+
+                                <!-- <button mat-icon-button [matMenuTriggerFor]="menu">
+                                    <mat-icon>more_vert</mat-icon>
+                                </button>
+        
+                                <mat-menu #menu="matMenu" class="menuStyle">
+                                    <button mat-menu-item class="menuItemStyle" (click)="onDeleteFile(sharedFile.id)">
+                                        <span>Delete</span>
+                                    </button>
+                                </mat-menu> -->
+    
+                            
+                            <mat-divider></mat-divider>
+                        </mat-list-item>
+                    </div>
+                </mat-list>
+            </div>
+
+            <div *ngIf="!showStorage" class="content">
+                <mat-list>
+                    <mat-list-item *ngFor="let userFile of userFiles; let i = index">
+
+
+
+                        <div class="itemWrapper" (click)="openFile(userFile, i)">
+                            <mat-list-item class="">
+                                <mat-icon class="lightGlow" mat-list-icon>music_note</mat-icon>
+                                <h4 
+                                *ngIf="userFile.title"
+                                 mat-line
+                                 >{{ userFile.title }}</h4>
+
+                                <h5 
+                                *ngIf="userFile.artist"
+                                 mat-line
+                                 >{{ userFile.artist }}</h5>
+
+                                <h4
+                                 *ngIf="!userFile.title && !userFile.artist"
+                                 mat-line
+                                 >{{ userFile.name }}</h4>
+                                <!-- <mat-icon *ngIf="currentFile.index === i && !state?.error">volume_up</mat-icon> -->
+                                <!-- <h6 *ngIf="currentFile.index === i && state?.error">ERROR</h6> -->
+                            </mat-list-item>
+
+                        </div>
+
+
+
+
+                        <button mat-icon-button [matMenuTriggerFor]="menu">
+                            <mat-icon>more_vert</mat-icon>
+                        </button>
+                        
+                        <mat-menu #menu="matMenu" class="menuStyle">
+                            <button mat-menu-item class="menuItemStyle" (click)="onDeleteFile(userFile.id)">
+                                <span>Delete</span>
+                            </button>
+                        </mat-menu>
+
+                        <mat-divider></mat-divider>
+                    </mat-list-item>
+
+
+                </mat-list>
+
+                <div class="head">
+
+                    <mat-icon mat-list-icon class="matAdd" (click)="onClickAdd()">{{showDownBtn ? 'remove' :
+                        'add'}}</mat-icon>
+    
+                    <div class="title neonText">
+                        <form *ngIf="showDownBtn" [formGroup]="uploadForm" (ngSubmit)="onSubmit()">
+                            <div>
+    
+                                <div class="form-group">
+    
+                                    <div [ngStyle]="{'text-shadow': fileToUpload ? 'none' : '0 0 6px #e60073, 0 0 12px #e60073'}">
+                                        <label for="file">
+                                            <span>Choose file</span>
+                                            <input formControlName="file" class="form-control inputFile" type="file"
+                                              id="file" accept=".mp3" (change)="onSelectFile($event)">
+                                                
+                                        </label>
+                                    </div>
+                                    
+                                    <button mat-icon-button class="uploadButton" [disabled]="!fileToUpload" type="submit">
+                                            <mat-icon>upload</mat-icon>
+                                    </button>
+                                    
+                                   
+    
+                                </div>
+    
+                            </div>
+                        </form>
+    
+    
+                    </div>
+
+                    <div class="tooltipHead" *ngIf="showDownBtn">
+                        <mat-icon class="redLightGlow">priority_high</mat-icon>
+                        <div class="tooltipText"><ul>
+                            <li>Playlist: no more than 5 files</li>
+                            <li>File Size: no more then 12MB</li>
+
+                        </ul></div>
+                        
+                    </div>
+    
+    
+                </div>
+
+            </div>
+
+        
+
+
+
+
+        
+
+
+    
+
 </div>

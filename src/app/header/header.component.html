@@ -14,12 +14,12 @@
             </span>
         </div>
         <ul class="nav navbar-nav">
-            <li routerLinkActive="active" *ngIf="userAuthenticated"><a>Home</a></li>
+            <!-- <li routerLinkActive="active" *ngIf="userAuthenticated"><a>Home</a></li>
             <li routerLinkActive="active" *ngIf="userAuthenticated"><a routerLink="/pages">Player</a></li>
             <li routerLinkActive="active" *ngIf="userAuthenticated">
                 <a 
                 (click)="onDisplayPlaylist()"
-                >Playlist</a></li>
+                >Playlist</a></li> -->
             <!-- <li routerLinkActive="active" *ngIf="!userAuthenticated"><a routerLink="/auth">Authentication</a></li> -->
         </ul>
 
@@ -27,12 +27,12 @@
         <div style="margin-left: auto;"></div>
         <div class="font">
 
-           <a *ngIf="!userAuthenticated" [ngClass]="{'active': signMode === false}" class="signModeButton" (click)="onChangeMode()">Login</a> 
-           <a *ngIf="!userAuthenticated" [ngClass]="{'active': signMode === true}" class="signModeButton" (click)="onChangeMode()">SignUp</a>
+           <a *ngIf="!userAuthenticated" [ngClass]="{'active': signMode === false}" class="signModeButton" (click)="onChangeMode(false)">Login</a> 
+           <a *ngIf="!userAuthenticated" [ngClass]="{'active': signMode === true}" class="signModeButton" (click)="onChangeMode(true)">SignUp</a>
             
-        </div>
+        <!-- </div>
         <input type="search" placeholder="Search" aria-label="Search" *ngIf="userAuthenticated">
-        <div>
+        <div> -->
             <ul style="margin-left: 1vw;">
                 <li><a *ngIf="userAuthenticated" (click)="onLogout()" class="pacificoFont">Logout</a></li>
             </ul>

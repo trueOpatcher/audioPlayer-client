@@ -1,35 +1,72 @@
 <div class="container">
+    
+
+    <div class="content">
+        <div class="image">
+            <img *ngIf="file?.imageUrl !== null" src="{{file?.imageUrl}}" alt="" crossorigin="anonymous" style="width: 250px; height: 250px;">
+            <mat-icon *ngIf="file?.imageUrl === null" class="mat-image">image</mat-icon>
+        </div>
 
 
-    <div class="content" style="width: 100%;">
-        <!-- <div>
-                <mat-toolbar class="main-toolbar">
-                    <span>Playing now</span>
-                </mat-toolbar> -->
-        <!-- <mat-list>
-                    <mat-list-item>
-                        <h4 mat-line *ngIf="currentFile.file">{{ currentFile.file.name }}</h4>
-                        <h5 mat-line *ngIf="currentFile.file">{{ currentFile.file.artist }}</h5>
-                    </mat-list-item>
-                </mat-list> -->
-        <!-- </div> -->
-
-
-
-        <mat-list>
-            <div class="flex-grow-3">
-                <mat-list-item class="box focus" *ngFor="let file of files; let i = index" (click)="openFile(file, i)">
-                    <mat-icon mat-list-icon>music_note</mat-icon>
-
-                    <h4 mat-line>{{ file.name }}</h4>
-                    <h5 mat-line>by {{ file.artist }}</h5>
-                    <!-- <mat-icon *ngIf="currentFile.index === i && !state?.error">volume_up</mat-icon> -->
-                    <!-- <h6 *ngIf="currentFile.index === i && state?.error">ERROR</h6> -->
-                    <mat-divider></mat-divider>
-                </mat-list-item>
-            </div>
-        </mat-list>
+        <div class="description">
+            <h3 mat-line *ngIf="file">{{ file?.title }}</h3>
+            <h3 mat-line *ngIf="file && (file?.title !== file?.artist)">{{ file?.artist }}</h3>
+            <h3 mat-line *ngIf="!file?.title && !file?.artist">{{file?.name}}</h3>
+            <h6 mat-line *ngIf="file">Uploaded by: {{ file?.userName }}</h6>
+            <!-- <h6 mat-line> </h6> -->
+            <!-- <div class="moreBtn">
+                <button mat-icon-button [matMenuTriggerFor]="menu">
+                    <mat-icon>more_vert</mat-icon>
+                </button>
+                
+                <mat-menu #menu="matMenu" class="menuStyle">
+                    <button mat-menu-item class="menuItemStyle" (click)="onMoreInformation()">
+                        <span>More</span>
+                    </button>
+                </mat-menu>
+            </div> -->
+            
+        </div>
     </div>
 
 
+
+
+
+
+
+
+    <div class="media-footer">
+        
+
+        <div class="slider">
+            {{ state?.readableCurrentTime }}
+            <mat-slider class="time-slider" min="0" [max]="state?.duration" step="1" [value]="state?.currentTime" (input)="onSliderChangeEnd($event)" [disabled]="state?.error"></mat-slider>
+
+            {{ state?.readableDuration }}
+        </div>
+        <div class="controlPanelWrapper">
+            <div class="controlPanel">
+                <button mat-icon-button [disabled]="isFirstPlaying()" (click)="previous()">
+
+                    <mat-icon class="sideArrows">skip_previous</mat-icon>
+                </button>
+                <button mat-icon-button (click)="play()" [disabled]="state?.error" *ngIf="!state?.playing">
+
+                    <mat-icon class="play">play_arrow</mat-icon>
+                </button>
+                <button mat-icon-button (click)="pause()" *ngIf="state?.playing">
+
+                    <mat-icon class="play">pause</mat-icon>
+                </button>
+                <button mat-icon-button [disabled]="isLastPlaying()" (click)="next()">
+
+                    <mat-icon class="sideArrows">skip_next</mat-icon>
+                </button>
+            </div>
+        </div>
+        
+   
+        
+    </div>
 </div>

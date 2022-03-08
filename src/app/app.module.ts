@@ -11,7 +11,6 @@ import { RoutingModule } from './routing.module';
 import { HttpClientModule } from '@angular/common/http';
 import { SharedModule } from './shared/shared.module';
 
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -21,7 +20,8 @@ import { SharedModule } from './shared/shared.module';
     BrowserModule,
     HttpClientModule,
     RoutingModule,
-    SharedModule
+    SharedModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent,HeaderComponent]

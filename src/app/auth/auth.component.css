@@ -2,9 +2,33 @@
     justify-content: space-around;
 }
 
+.form-group {
+    margin-top: 2vh;
+}
+
+
+.centerPosition {
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+}
+
+.error {
+    padding-top: 5px;
+    color: rgb(194, 22, 22);
+    text-shadow: 0 0 5px, 0 0 10px;
+    font-size: 0.9rem;
+}
+
 input {
-    margin-bottom: 2.5vh;
-    margin-top: 0.5vh;
+    margin-top: 1vh;
+}
+
+input.ng-invalid.ng-touched {
+    box-shadow: 0 0 5px red, 0 0 10px red;
 }
 
 .container {
@@ -16,7 +40,8 @@ a {
     color: white;
 }
 
-.centerPosition {
+
+.center {
     margin: 0;
     position: absolute;
     top: 50%;
@@ -37,14 +62,22 @@ a {
 }
 
 button {
+    margin-top: 2vh;
     padding: 0;
     cursor: pointer;
     font-size: 1.2rem;
     font-weight: 400;
-    line-height: 1.5;
     border: 0;
     background-color: rgb(10, 10, 10);
     color: white;
+    pointer-events: all;
+}
+
+button:disabled {
+    color: grey;
+    text-shadow: none;
+    cursor: none;
+    pointer-events: none;
 }
 
 button:hover {

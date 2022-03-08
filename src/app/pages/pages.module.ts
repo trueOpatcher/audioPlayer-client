@@ -9,7 +9,7 @@ import { PagesRoutingModule } from "./pages-routing.module";
 import { PagesComponent } from "./pages.component";
 import { PlayerComponent } from "./player/player.component";
 import { PlaylistComponent } from "./playlist/playlist.component";
-
+import { SharedModule } from "../shared/shared.module";
 @NgModule ({
     declarations: [
         PlayerComponent,
@@ -22,7 +22,9 @@ import { PlaylistComponent } from "./playlist/playlist.component";
         PagesRoutingModule,
         CommonModule,
         MaterialModule,
-        ReactiveFormsModule
+        ReactiveFormsModule,
+        SharedModule,
+
     ]
 })
 

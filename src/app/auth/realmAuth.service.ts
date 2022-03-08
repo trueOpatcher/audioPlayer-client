@@ -2,7 +2,7 @@ import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { Router } from "@angular/router";
 import * as Realm from "realm-web";
-import { BehaviorSubject, catchError, firstValueFrom, lastValueFrom, map, Observable, of, ReplaySubject, tap, throwError } from "rxjs";
+import { BehaviorSubject, catchError, firstValueFrom, lastValueFrom, map, Observable, of, ReplaySubject, take, tap, throwError } from "rxjs";
 import { environment } from "src/environments/environment";
 import { User } from "./user.model";
 
@@ -15,13 +15,9 @@ import { User } from "./user.model";
 
 
 export class RealmAuthService {
+    signMode = new BehaviorSubject<boolean>(false);
+    
 
-    signMode = false;
-
-    changeSignMode() {
-        console.log(this.signMode);
-        this.signMode = !this.signMode;
-    }
     private SERVER_URL = environment.serverUrl;
     
     private app: Realm.App = new Realm.App ({id: "musicplayer-gxlig"});
@@ -35,6 +31,7 @@ export class RealmAuthService {
     }
 
     login(email: string, password: string) {
+    console.log('in login');
         
         
         return this.http.post<any>(this.SERVER_URL + '/auth/login', {
@@ -59,11 +56,12 @@ export class RealmAuthService {
     }
 
 
-    signUp(email: string, password: string) {
+    signUp(email: string, password: string, userName: string) {
        return this.http.post(this.SERVER_URL + '/auth/signup', {
             email: email,
-            password: password
-        }).pipe(catchError(error => of(console.log(error))));
+            password: password,
+            userName: userName
+        }, {withCredentials: true});
 
     }
 
@@ -77,7 +75,6 @@ export class RealmAuthService {
         }).catch(error => {
             console.log(error);
         });
-        
         
     }
 

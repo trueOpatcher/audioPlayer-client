@@ -9,4 +9,8 @@
     transform: translate(-50%, -50%);
 }
 
+.myContainer {
+    background-color: rgb(10, 10, 10);
+    height: 100%;
+}
 
