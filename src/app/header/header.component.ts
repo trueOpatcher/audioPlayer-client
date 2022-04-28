@@ -1,7 +1,6 @@
 import { Component, OnDestroy, OnInit } from "@angular/core";
 import { ActivatedRoute, Router } from "@angular/router";
 import { Subscription } from "rxjs";
-import { AuthService } from "../auth/auth.service";
 import { RealmAuthService } from '../auth/realmAuth.service';
 import { AudioService } from "../pages/audio.service";
 
@@ -17,7 +16,6 @@ export class HeaderComponent implements OnInit, OnDestroy {
     private userSub!: Subscription;
 
     constructor(
-        private authService: AuthService,
         private realmAuthService: RealmAuthService,
         private router: Router,
         private route: ActivatedRoute,

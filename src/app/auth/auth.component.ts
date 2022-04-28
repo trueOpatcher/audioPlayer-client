@@ -3,7 +3,6 @@ import { Component, OnDestroy, OnInit } from "@angular/core";
 import { AbstractControl, FormControl, FormGroup, ValidationErrors, ValidatorFn, Validators } from "@angular/forms";
 import { Router } from "@angular/router";
 import { Subscription, Observable } from "rxjs";
-import { AuthService } from "./auth.service";
 import { RealmAuthService } from "./realmAuth.service";
 
 @Component({
@@ -43,8 +42,7 @@ export class AuthComponent implements OnInit {
 
 
     constructor(private router: Router,
-        private realmAuthService: RealmAuthService,
-        private authService: AuthService) {
+        private realmAuthService: RealmAuthService) {
 
     }
 

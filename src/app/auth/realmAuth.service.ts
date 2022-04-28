@@ -23,7 +23,7 @@ export class RealmAuthService {
     private app: Realm.App = new Realm.App ({id: "musicplayer-gxlig"});
     
 
-    authStatus = new BehaviorSubject<boolean | null>(null);
+    authStatus = new BehaviorSubject<boolean>(false);
 
     constructor(private router: Router,
                 private http: HttpClient) {
@@ -70,7 +70,7 @@ export class RealmAuthService {
         await firstValueFrom(this.http.get(this.SERVER_URL + '/auth/logout', { withCredentials: true })).then(() => {
             console.log('in logout observable');
             localStorage.clear();
-            this.authStatus.next(null);
+            this.authStatus.next(false);
             this.router.navigate(['/auth']);
         }).catch(error => {
             console.log(error);

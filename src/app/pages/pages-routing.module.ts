@@ -9,7 +9,7 @@ import { PlayerComponent } from "./player/player.component";
 const routes: Routes = [
     {
         path: '', component: PagesComponent,
-        canActivate: [AuthGuard],
+        // canActivate: [AuthGuard],
         children: [
             { path: ''},
             { path: 'player', component: PlayerComponent },

@@ -5,6 +5,8 @@ import { AudioService } from 'src/app/pages/audio.service';
 import { File } from 'src/app/shared/file.model';
 import { FormControl, FormGroup } from '@angular/forms';
 import { PlaylistService } from '../playlist/playlist.service';
+import { RealmAuthService } from 'src/app/auth/realmAuth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-playlist',
@@ -20,7 +22,8 @@ export class PlaylistComponent  implements OnInit {
   fileToUpload: File | null = null;
 
   showDownBtn = false;
-  showStorage = false;
+  showStorage = true;
+  isLoggedIn = false;
 
   sharedFiles: any = [];
   userFiles: any = [];
@@ -29,14 +32,21 @@ export class PlaylistComponent  implements OnInit {
 
   constructor(
     private audioService: AudioService, 
-    private playlistService: PlaylistService
+    private playlistService: PlaylistService,
+    private authService: RealmAuthService,
+    private router: Router
   ) {
-    // get media files
+
     this.updatePlaylist();
-    // listen to stream state
+
+
     audioService.getState().subscribe(state => {
       this.state = state;
     });
+
+    this.authService.authStatus.subscribe(isLoggedIn => {
+      this.isLoggedIn = isLoggedIn;
+    })
   }   
   
   ngOnInit() {
@@ -76,6 +86,8 @@ onSubmit() {
   } else if(this.userFiles.length > 4) {
     console.log('Reach max limit');
     return;
+  } else if(this.isLoggedIn === false) {
+    this.router.navigate(['/auth']);
   }
 
   const fileToUpload = this.fileToUpload;

@@ -15,11 +15,14 @@ nav {
     color: white;
 }
 
+
+
 .active {
     text-shadow: 0 0 5px #fff, 0 0 10px #e60073, 0 0 15px #e60073, 0 0 20px #e60073, 0 0 25px #e60073, 0 0 30px #e60073;
 }
 
 .navbar-header {
+    cursor: pointer;
     margin-left: 1.5rem;
     margin-right: 1.5rem;
 }

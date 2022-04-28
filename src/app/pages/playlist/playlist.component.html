@@ -6,15 +6,13 @@
         
             <div class="head pacificoFont">
 
-                <div class="title" [ngClass]="{'neonText': showStorage === false}">
-                    <a (click)="options(false)">My playlist</a>
-                </div>
-
                 <div class="title" [ngClass]="{'neonText': showStorage === true}">
                     <a (click)="options(true)">Shared Storage</a>
                 </div>
 
-                
+                <div class="title" [ngClass]="{'neonText': showStorage === false}">
+                    <a (click)="options(false)">My playlist</a>
+                </div>     
 
             </div>
 
